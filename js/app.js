@@ -8,6 +8,9 @@ const slides = [
 	'./img/05.jpg',
 ]
 
+const slideElements =[];
+let currentindex = 0;
+
 const slideWrapperEl = document.querySelector('.slides-wrapper');
 slideWrapperEl.innerHTML = '';
 console.log(slideWrapperEl);
@@ -17,10 +20,12 @@ console.log(slideWrapperEl);
 
 for (let i = 0; i < slides.length; i++) {
   const src = slides[i];
-  console.log(src);
+//   console.log(src);
+
+
 
 //creando li
-  const li = document.createElement('li');
+ const li = document.createElement('li');
 
 //agg. la classe slide al li 
   li.className = 'slide';
@@ -28,10 +33,7 @@ for (let i = 0; i < slides.length; i++) {
   if (i === 0){
     li.classList.add('active');
   }
-}
-
-
-// creazione img
+  // creazione img
 
 const img = document.createElement('img');
 // assegnazione src valore preso
@@ -45,3 +47,18 @@ console.log(li);
 
 // inserendo li dentro slides wrapper 
 slideWrapperEl.append(li);
+}
+console.log(slideElements);
+
+const nextArrowEl = document.querySelector('.arrow-next');
+console.log(nextArrowEl);
+
+nextArrowEl.addEventListener('click', function(){
+    // togliere la classe active dalla slide attiva
+    const slideAttiva = slideElements[0];
+     
+    slideAttiva.classList.remove('active');
+})
+
+
+
